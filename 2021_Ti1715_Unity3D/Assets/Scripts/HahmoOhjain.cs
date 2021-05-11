@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HahmoOhjain : MonoBehaviour
 {
+    public GameObject coinPrefab;
+    public Transform coinSpawnPoint;
+
     public float juoksuNopeus = 3.5f;
     public float hiirenNopeus = 3f;
     public float hyppyNopeus = 100f;
@@ -54,7 +57,15 @@ public class HahmoOhjain : MonoBehaviour
             liikesuunta.y += hyppyNopeus;
         }
 
+        if(Input.GetButtonDown("Fire1"))
+        {
+            SpawnCoin();
+        }
     }
 
-
+    public void SpawnCoin()
+    {
+      GameObject gameObject =   Instantiate(coinPrefab,coinSpawnPoint.position,Quaternion.identity);
+      //gameObject.GetComponent<Coin>().
+    }
 }
